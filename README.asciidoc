@@ -1,0 +1,27 @@
+helmet-unit-nads
+================
+
+A party game combining telephone and drawing.
+
+Project Components
+------------------
+API
+Web client
+Android client
+iOS client
+
+API
+---
+The following API is used by all clients to interact with the game.
+
+Web client
+----------
+The web client project is a browser-based version of the game.
+
+Android client
+--------------
+The Android client is an Android version of the game.
+
+iOS client
+----------
+The iOS client is an iOS version of the game.
