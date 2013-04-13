@@ -5,10 +5,10 @@ A party game combining telephone and drawing.
 
 Project Components
 ------------------
-API
-Web client
-Android client
-iOS client
+* API
+* Web client
+* Android client
+* iOS client
 
 API
 ---
