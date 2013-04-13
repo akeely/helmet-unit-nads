@@ -41,3 +41,9 @@ Thumbs.db
 ####################
 build
 .gradle
+
+# Eclipse generated #
+#####################
+.classpath
+.project
+.settings
