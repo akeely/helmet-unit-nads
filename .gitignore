@@ -47,3 +47,7 @@ build
 .classpath
 .project
 .settings
+
+# Asciidoc generated #
+######################
+README.html
