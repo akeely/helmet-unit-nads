@@ -51,3 +51,9 @@ build
 # Asciidoc generated #
 ######################
 README.html
+
+# Play generated #
+##################
+.cache
+.target
+
