@@ -11,17 +11,55 @@ Project Components
 * iOS client
 
 API
----
+~~~
 The following API is used by all clients to interact with the game.
 
 Web client
-----------
+~~~~~~~~~~
 The web client project is a browser-based version of the game.
 
 Android client
---------------
+~~~~~~~~~~~~~~
 The Android client is an Android version of the game.
 
 iOS client
-----------
+~~~~~~~~~~
 The iOS client is an iOS version of the game.
+
+API Details
+-----------
+The following APIs are provided.
+
+Version: 0.1 (unstable)
+
+[cols="2*1,1*3",options="header"]
+|======
+|Method|URI|Description
+| GET | /game |
+Get a list of available games.
+
+| POST | /game |
+Create a new game.
+
+| GET | /game/:id |
+Get information about a game.
+
+| GET | /game/:id/entry | 
+Get the list of sentences and images associated with a game.
+
+| GET | /game/:id/entry/current |
+Get the most recent entry for the game.
+
+| POST | /game/:id/entry |
+Add a new entry to the game.
+
+| GET | /game/:id/player | 
+Get the list of players participating in a game.
+
+| POST | /game/:id/player | 
+Add a new player to the game.
+
+| PUT | /game/:id/player/:id | 
+Update a player's status in the game. 
+
+|======
