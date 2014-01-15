@@ -1,5 +1,5 @@
 package api
 
-trait User {
+case class User(
 	val name: String
-}
+)

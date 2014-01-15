@@ -1,9 +1,6 @@
 package api
 
-trait Game {
+case class Game(owner: User, players: List[User], currentPlayer: Int, entries: List[Entry]) {
   
-  val owner: User
-  val players: List[User]
-  val currentPlayer: Int
-  val entries: List[Entry]
+  def isOver(): Boolean = currentPlayer >= players.size
 }
