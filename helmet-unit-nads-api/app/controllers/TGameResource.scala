@@ -5,7 +5,7 @@ import play.api.mvc._
 import repository.GameRepositoryComponent
 import controllers.converter.JsonGameConverter
 
-trait GameResource extends Controller with GameRepositoryComponent {
+trait TGameResource extends Controller with GameRepositoryComponent {
 
   def find(id: String) = Action {
     
@@ -17,15 +17,15 @@ trait GameResource extends Controller with GameRepositoryComponent {
     Ok("This is a game.")
   }
   
-  def findEntries(id: Int) = Action {
+  def findEntries(id: String) = Action {
     Ok("These are entries for the game.")
   }
   
-  def findCurrentEntry(id: Int) = Action {
+  def findCurrentEntry(id: String) = Action {
     Ok("This is the current entry for the game.")
   }
   
-  def saveEntry(id: Int, entryType: Option[String]) = Action {
+  def saveEntry(id: String, entryType: Option[String]) = Action {
 
     request =>
     
@@ -39,23 +39,23 @@ trait GameResource extends Controller with GameRepositoryComponent {
       entryResult(entryType)
   }
   
-  def findPlayers(id: Int) = Action {
+  def findPlayers(id: String) = Action {
     Ok("These are the players in the game.")
   }
   
-  def savePlayer(id: Int) = Action {
+  def savePlayer(id: String) = Action {
     Ok("The player has been added to the game.")
   }
   
-  def updatePlayer(id: Int, playerId: Int) = Action {
+  def updatePlayer(id: String, playerId: String) = Action {
     Ok("The player's status has been updated.")
   }
   
-  def saveImage[A](id: Int, request: Request[A]): Result = {
+  def saveImage[A](id: String, request: Request[A]): Result = {
     Ok("Image saved.")
   }
   
-  def saveSentence[A](id: Int, request: Request[A]): Result = {
+  def saveSentence[A](id: String, request: Request[A]): Result = {
     Ok("Sentence saved.")
   }
 }
