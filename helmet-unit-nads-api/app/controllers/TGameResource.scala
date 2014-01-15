@@ -13,8 +13,6 @@ trait TGameResource extends Controller with GameRepositoryComponent {
       case Some(g) => Ok(JsonGameConverter.gameToJson(g))
       case None => NotFound(s"Game $id does not exist")
     }
-    
-    Ok("This is a game.")
   }
   
   def findEntries(id: String) = Action {
