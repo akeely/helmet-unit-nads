@@ -2,10 +2,18 @@ package controllers
 
 import play.api._
 import play.api.mvc._
+import repository.GameRepositoryComponent
+import controllers.converter.JsonGameConverter
 
-object GameResource extends Controller {
+trait GameResource extends Controller with GameRepositoryComponent {
 
-  def find(id: Int) = Action {
+  def find(id: String) = Action {
+    
+    gameRepository.findOne(id) match {
+      case Some(g) => Ok(JsonGameConverter.gameToJson(g))
+      case None => NotFound(s"Game $id does not exist")
+    }
+    
     Ok("This is a game.")
   }
   
@@ -24,8 +32,8 @@ object GameResource extends Controller {
       def entryResult(x: Option[String]): Result = x match {
         case Some("img") => saveImage(id, request)
         case Some("txt") => saveSentence(id, request)
-        case Some(_) => NotFound("Invalid entryType " + x + ". Must be 'img' or 'txt'.")
-        case None => NotFound("entryType parameter required.")
+        case Some(_) => BadRequest("Invalid entryType " + x + ". Must be 'img' or 'txt'.")
+        case None => BadRequest("entryType parameter required.")
       }
     
       entryResult(entryType)
