@@ -18,5 +18,8 @@ GET		/game/:id/player			controllers.GameResource.findPlayers(id: String)
 POST	/game/:id/player			controllers.GameResource.savePlayer(id: String)
 PUT		/game/:id/player/:playerId	controllers.GameResource.updatePlayer(id: String, playerId: String)
 
+# Images from GridFS
+GET     /img/:filename              controllers.ImageResource.findOne(filename: String)
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

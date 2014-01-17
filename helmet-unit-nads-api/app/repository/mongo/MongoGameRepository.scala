@@ -46,6 +46,20 @@ class MongoGameRepository(dbName: String) extends GameRepository {
     }
   }
   
+  def addPlayer(id: String, player: User): Try[Game] = {
+    
+    findOne(id) match {
+      case None => Failure(new MongoException("Game ${id} does not exist"))
+      case Some(game) => {
+        val mongoId = MongoDBObject("_id" -> MongoGameConverter.idToMongoId(id))
+        val newPlayers = game.players :+ player
+        val result = gameCollection.update(mongoId, $push(GameMongoProperties.PLAYERS -> player.name))
+        if(result.getLastError().ok()) Success(Game(game.owner,newPlayers, game.currentPlayer, game.entries))
+        else Failure(result.getLastError().getException())
+      }
+    }
+  }
+  
   def addEntryToMongo(id: String, entry: Entry): Try[Unit] = {
     
     val mongoId = MongoDBObject("_id" -> MongoGameConverter.idToMongoId(id))

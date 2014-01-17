@@ -31,4 +31,13 @@ trait GameRepository {
    * @retun The updated game.
    */
   def addEntry(id: String, entry: Entry): Try[Game]
+  
+  /**
+   * Add a player to the game.
+   * 
+   * @param id The game to add the player to.
+   * @param player The player to add.
+   * @return The updated game.
+   */
+  def addPlayer(id: String, player: User): Try[Game]
 }
