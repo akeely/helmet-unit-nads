@@ -72,7 +72,7 @@ trait TGameResource extends Controller with GameRepositoryComponent with ImageRe
   
   def saveImageFile(id: String) = TODO
   
-  def saveImageData(id: String) = Action(parse.text) { request =>
+  def saveImageData(id: String) = Action(parse.tolerantText) { request =>
     gameRepository.findOne(id) match {
       case None => NotFound(s"Game $id does not exist")
       case Some(g) => ImageConverter.stringToImage(request.body) match {
@@ -96,7 +96,7 @@ trait TGameResource extends Controller with GameRepositoryComponent with ImageRe
     }
   }
   
-  def saveSentence(id: String) = Action(parse.text) { request =>
+  def saveSentence(id: String) = Action(parse.tolerantText) { request =>
 
     val sentence = request.body
     val entry = SentenceEntry(sentence,User("author"))

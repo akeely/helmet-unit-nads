@@ -1,0 +1,25 @@
+@*
+* Add a new sentence to the given game.
+*@
+@(gameId: String, players: List[String])
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Helmet Unit Nads</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="stylesheet" href="@routes.Assets.at("lib/css/literally.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("lib/js/literallycanvas.jquery.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/images.js")" type="text/javascript"></script>
+        
+    </head>
+    <body>
+        <p>Welcome to your new game! Enter a sentence:</p>
+        <input type="text" id="newSentence">Enter sentence here</input>
+        <button class="getSentence" onclick="uploadSentence('@gameId');">Save Sentence</button>
+    </body>
+</html>
+

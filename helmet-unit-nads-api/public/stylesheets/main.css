@@ -1,0 +1,8 @@
+.literally {
+    width: 100%;   /* fill container width */
+    height: 500px;
+}
+
+.drawing {
+	border: 1px solid;
+}

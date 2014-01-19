@@ -4,19 +4,19 @@
 
 # Home page
 GET     /                           controllers.Application.index
-
+GET     /:id                            controllers.Application.imageEntry(id: String)
 # Game Collection APIs
-GET		/game						controllers.GameCollection.find
-POST	/game						controllers.GameCollection.save
+GET		/api/game						controllers.GameCollection.find
+POST	/api/game						controllers.GameCollection.save
 
 # Game Resource APIs
-GET		/game/:id					controllers.GameResource.find(id: String)
-GET		/game/:id/entry				controllers.GameResource.findEntries(id: String)
-POST	/game/:id/entry				controllers.GameResource.saveEntry(id: String, entryType: Option[String])
-GET		/game/:id/entry/current		controllers.GameResource.findCurrentEntry(id: String)
-GET		/game/:id/player			controllers.GameResource.findPlayers(id: String)
-POST	/game/:id/player			controllers.GameResource.savePlayer(id: String)
-PUT		/game/:id/player/:playerId	controllers.GameResource.updatePlayer(id: String, playerId: String)
+GET		/api/game/:id					controllers.GameResource.find(id: String)
+GET		/api/game/:id/entry				controllers.GameResource.findEntries(id: String)
+POST	/api/game/:id/entry				controllers.GameResource.saveEntry(id: String, entryType: Option[String])
+GET		/api/game/:id/entry/current		controllers.GameResource.findCurrentEntry(id: String)
+GET		/api/game/:id/player			controllers.GameResource.findPlayers(id: String)
+POST	/api/game/:id/player			controllers.GameResource.savePlayer(id: String)
+PUT		/api/game/:id/player/:playerId	controllers.GameResource.updatePlayer(id: String, playerId: String)
 
 # Images from GridFS
 GET     /img/:filename              controllers.ImageResource.findOne(filename: String)

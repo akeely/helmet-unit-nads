@@ -12,7 +12,7 @@ object ApplicationBuild extends Build {
     jdbc,
     anorm,
     "org.mongodb" %% "casbah" % "2.6.3"
-    "commons-codec" %% "commons-codec" % "1.8"
+    //"commons-codec" %% "commons-codec" % "1.8"
   )
 
 
